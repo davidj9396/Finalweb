@@ -1,0 +1,663 @@
+/* === PALETA DE COLORES === */
+:root {
+  --gris-fondo: #f4f4f4;
+  --gris-oscuro: #2b2b2b;
+  --gris-medio: #6c6c6c;
+  --gris-claro: #d8d8d8;
+  --blanco: #ffffff;
+  --acento: #b0a060;
+}
+
+/* === BASE GENERAL === */
+body {
+  background-color: var(--gris-fondo);
+  color: var(--gris-oscuro);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: var(--gris-oscuro) !important;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(43,43,43,0.95) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.navbar-brand .logo {
+  width: 45px;
+}
+
+.brand-text {
+  font-weight: 700;
+  color: var(--blanco);
+}
+
+.nav-link {
+  color: var(--gris-claro) !important;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--acento) !important;
+}
+
+/* === CARRUSELES GENERALES (Index / Acerca de) === */
+.carousel-item img {
+  height: 70vh;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.carousel-caption h1,
+.carousel-caption p {
+  color: var(--blanco);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+/* Carrusel de acerca de */
+.about-carousel .carousel-item img {
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  background-color: #000;
+}
+
+/* === ENCABEZADO DE LA CARTA === */
+.carta-hero {
+  position: relative;
+  height: 75vh;
+  background-image: url('../Dist/Imagen/Carta.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.carta-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.carta-overlay {
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.carta-overlay h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.carta-overlay p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #e0e0e0;
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === SECCIONES DE CARTA === */
+.text-acento {
+  color: var(--acento);
+}
+
+.menu-item {
+  background-color: #111; /* fondo negro elegante */
+  color: var(--blanco);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.menu-item h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--acento);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.menu-item p {
+  color: var(--gris-claro);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* === TARJETAS (index) === */
+.card {
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(180deg, #3e3e3e, #2b2b2b);
+  color: var(--blanco);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.btn-outline-light {
+  border-color: var(--gris-claro);
+  color: var(--blanco);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--acento);
+  color: var(--gris-oscuro);
+  border-color: var(--acento);
+}
+
+/* === FOOTER === */
+footer {
+  background-color: var(--gris-oscuro);
+  color: var(--gris-claro);
+  font-size: 0.9rem;
+}
+
+footer span {
+  color: var(--acento);
+}
+
+/* === BOTÓN VOLVER ARRIBA === */
+#btnTop {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  background: var(--acento);
+  color: var(--gris-oscuro);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+#btnTop:hover {
+  background: #8e8450;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 50vh;
+  }
+
+  .carta-hero {
+    height: 50vh;
+    background-attachment: scroll;
+  }
+
+  .carta-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .carta-overlay p {
+    font-size: 1rem;
+  }
+}
+
+/* ======== CARTA (FONDO CON IMAGEN) ======== */
+.carta-hero {
+  position: relative;
+  height: 70vh;
+  background-image: url("../Imagen/carta.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.carta-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* oscurece la imagen */
+  z-index: 0;
+}
+
+.carta-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.carta-content h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.carta-content p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #f0f0f0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === EXPERIENCIAS (CHEF A DOMICILIO) === */
+.experiencias-hero {
+  position: relative;
+  height: 70vh;
+  background: url("../Dist/Imagen/chefhero.jpg") center center / cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.experiencias-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(1.5px);
+  z-index: 0;
+}
+
+.experiencias-hero .content {
+  position: relative;
+  z-index: 1;
+}
+
+.animate-fade {
+  animation: fadeIn 2.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === PARA MODIFICAR EL TAMAÑO DE LAS IMAGENES === */
+.experiencias-hero {
+  position: relative;
+  height: 70vh;
+  background-color: #1f1f1f; /* color oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.experiencias-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.experiencias-hero .content {
+  position: relative;
+  z-index: 2;
+}
+
+.experiencias-hero h1, 
+.experiencias-hero p {
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* === Imágenes del bloque Experiencias === */
+.experiencia-img {
+  width: 100%;
+  height: 280px;        /* <-- Tamaño fijo y equilibrado */
+  object-fit: cover;    /* Ajusta la imagen sin deformarla */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.experiencia-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* PARA EVENTOS*/
+.catering-card {
+  background: #1f1f1f;
+  color: var(--blanco);
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--acento);
+}
+.catering-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+.catering-card img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ==== EFECTO FADE EN CARRUSEL DE EVENTOS ==== */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+.fade-img {
+  height: 80vh;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.carousel-caption h2 {
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+.carousel-caption p {
+  color: #f5f5f5;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+  font-size: 1.1rem;
+}
+
+#contactCarousel .carousel-item img {
+  width: 100%;
+  height: 70vh;            /* adapta la altura del hero del carousel */
+  object-fit: cover;       /* recorta sin deformar */
+  filter: brightness(0.82);
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.carousel-fade .carousel-item.active { opacity: 1; }
+
+form.needs-validation .form-control:invalid {
+  border-color: #e74c3c;
+}
+form.needs-validation .form-control:valid {
+  border-color: #2ecc71;
+}
+
+/* iframe responsive (ya usas 100% width, esto solo asegura aspecto y sombra) */
+iframe.rounded {
+  border: 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Ajuste móvil para el header */
+@media (max-width: 768px) {
+  #contactCarousel .carousel-item img { height: 45vh; }
+}
+
+
+/* === CONTACTO - HERO CON ZOOM LENTO === */
+.contacto-hero {
+  position: relative;
+  height: 70vh;
+  background-color: #000; /* ← Fondo negro sólido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contacto-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* capa semitransparente opcional */
+  z-index: 1;
+}
+
+.contacto-hero .content {
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.contacto-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.contacto-hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #ddd;
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom lento al fondo */
+@keyframes zoomInSlow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+  .contacto-hero {
+    height: 50vh;
+    background-attachment: scroll;
+    animation: zoomInSlow 12s ease-in-out infinite alternate;
+  }
+  .contacto-hero h1 {
+    font-size: 2rem;
+  }
+  .contacto-hero p {
+    font-size: 1rem;
+  }
+}
+
+/* === VIDEO EN CARRUSEL DE EVENTOS(CUMPLE)=== */
+.fade-video {
+  height: 70vh;
+  width: 100%;
+  object-fit: contain; /* Muestra el video completo */
+  background-color: #000; /* Fondo negro para cubrir los bordes */
+  filter: brightness(0.9);
+}
+
+@media (max-width: 768px) {
+  .fade-video {
+    height: 55vh;
+    object-fit: contain;
+  }
+}
+
+/* === CARRUSEL DE CENA ROMÁNTICA (IMAGEN COMPLETA) === */
+.fade-img {
+  height: 90vh; /* hace el carrusel más alto */
+  width: 100%;
+  object-fit: contain; /* muestra la imagen completa sin recortarla */
+  background-color: #000; /* fondo negro si la imagen no llena todo el ancho */
+  filter: brightness(0.9);
+  transition: transform 6s ease-in-out;
+}
+
+.carousel-item.active .fade-img {
+  transform: scale(1.02); /* zoom muy sutil */
+}
+
+/* Ajustes de texto */
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 20px;
+  border-radius: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-caption h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.carousel-caption p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .fade-img {
+    height: 60vh;
+    object-fit: contain;
+  }
+  .carousel-caption {
+    padding: 10px;
+  }
+  .carousel-caption h2 {
+    font-size: 1.4rem;
+  }
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+} 
+
+#romanticCarousel .carousel-item img {
+  width: 100%;
+  height: auto;              /* mantiene la proporción real */
+  max-height: 75vh;          /* evita que sea demasiado alta */
+  object-fit: contain;       /* muestra la imagen completa sin recortarla */
+  background-color: #000;    /* fondo negro si sobra espacio */
+  filter: brightness(0.9);
+  transition: transform 6s ease-in-out;
+}
+
+#romanticCarousel .carousel-item.active img {
+  transform: scale(1.03);    /* zoom muy suave */
+}
+
+#romanticCarousel .carousel-caption {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 20px;
+  border-radius: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+#romanticCarousel .carousel-caption h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+#romanticCarousel .carousel-caption p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  #romanticCarousel .carousel-item img {
+    max-height: 55vh;        /* más baja en móviles */
+  }
+  #romanticCarousel .carousel-caption {
+    padding: 10px;
+  }
+  #romanticCarousel .carousel-caption h2 {
+    font-size: 1.4rem;
+  }
+  #romanticCarousel .carousel-caption p {
+    font-size: 0.9rem;
+  }
+}
